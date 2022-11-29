@@ -12,3 +12,9 @@ def url():
     resp, code = fns[request.method](request)
     return jsonify(resp), code
 
+@main_route.route("/url/<string:url>")
+def getSpecificUrl(url):
+    resp, code = urlController.get_url_by_long_url(url)
+    return jsonify(resp), code
+    
+
