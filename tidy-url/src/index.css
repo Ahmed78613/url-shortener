@@ -15,16 +15,17 @@ body {
 	align-items: center;
 	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 	overflow: hidden;
-	cursor: pointer;
 }
 
 h1 {
 	text-align: center;
 	font-size: 80px;
-	margin-bottom: 0.5rem;
+	margin: 0.5rem 0;
+
 	color: #5f3fec;
 	animation: headerAnimate infinite 3s ease-in;
 	transition: 0.3s ease-in-out;
+	cursor: pointer;
 }
 
 h1:hover {
@@ -75,6 +76,10 @@ input {
 	padding: 0.5rem 1rem;
 	font-size: 30px;
 	margin: 0.5rem 0;
+}
+
+input:focus {
+	background-color: #5f3fec54;
 }
 
 .submit_btn {
