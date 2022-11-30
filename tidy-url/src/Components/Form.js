@@ -5,15 +5,19 @@ const Form = ({ setHide, setUrl }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let url = e.target.url_input.value;
-		console.log(url);
 		const fetchApi = `http://127.0.0.1:5000`;
-		if (!url.includes("http://www.") || !url.includes("https://www.")) {
-			url = "http://www." + url;
+		if (!url.includes("http://") && !url.includes("https://")) {
+			url = "https://www." + url;
 		}
 		try {
 			const { data } = await axios.post(fetchApi, { original_url: url });
+
+			if (data[0] === undefined) {
+				setUrl(data.short_url);
+			} else {
+				setUrl(data[0].short_url);
+			}
 			setHide(true);
-			setUrl(data.short_url);
 		} catch (err) {
 			console.error(err);
 		}

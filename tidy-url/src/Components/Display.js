@@ -16,7 +16,7 @@ const Display = ({ url }) => {
 			<i
 				onClick={copyToClipboard}
 				id="copy_btn"
-				class="fa-regular fa-clipboard"
+				className="fa-regular fa-clipboard"
 			></i>
 		</div>
 	);

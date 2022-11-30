@@ -15,6 +15,7 @@ body {
 	align-items: center;
 	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 	overflow: hidden;
+	cursor: pointer;
 }
 
 h1 {
@@ -22,6 +23,25 @@ h1 {
 	font-size: 80px;
 	margin-bottom: 0.5rem;
 	color: #5f3fec;
+	animation: headerAnimate infinite 3s ease-in;
+	transition: 0.3s ease-in-out;
+}
+
+h1:hover {
+	color: #3f27ad;
+}
+
+@keyframes headerAnimate {
+	0% {
+		rotate: 3deg;
+	}
+	50% {
+		rotate: -3deg;
+	}
+
+	100% {
+		rotate: 3deg;
+	}
 }
 
 a {
@@ -93,6 +113,7 @@ input {
 	margin: 0.5rem 0 0;
 	font-size: 30px;
 	transition: 0.3s ease-in-out;
+	cursor: pointer;
 }
 
 #copy_btn:hover {
