@@ -47,7 +47,7 @@ def create(request):
     existing_url = check_if_url_exists(data["original_url"])
     if existing_url == False:
         # Create short url
-        generated_url = short_url_Generator()
+        generated_url = short_url_Generator(data)
         new_url = Url(original_url=data["original_url"], short_url=generated_url)
         # Add to DB
         db.session.add(new_url)
@@ -58,11 +58,14 @@ def create(request):
     else:
         return existing_url, 200
 
-def short_url_Generator():
+def short_url_Generator(data):
     base = 'http://127.0.0.1:5000/'
-    # Generate random id
-    letters = string.ascii_lowercase + string.digits
-    id = ''.join(random.choice(letters) for i in range(5))
+    if 'keyword' in data:
+        id = data['keyword']
+    else:
+        # Generate random id
+        letters = string.ascii_lowercase + string.digits
+        id = ''.join(random.choice(letters) for i in range(5))
     return base + id
 
 def check_if_url_exists(url):
