@@ -22,5 +22,4 @@ def getSpecificUrl(url):
 def redirectUser(url):
     resp = urlController.redirect_to_url(url)
     return resp
-    
 

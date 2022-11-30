@@ -27,7 +27,6 @@ def get_url_by_long_url(url):
         return "doesn't Exist", 404
 
 def get_long_url_by__short_url(url):
-    print("start*********************")
     try:
         long_url = Url.query.filter_by(short_url=str(url)).first()
         output = {
@@ -35,10 +34,8 @@ def get_long_url_by__short_url(url):
             "short_url": long_url.short_url, 
             "clicks": long_url.clicks
             }
-        print("finish*********************")
         return output, 200
     except:
-        print("fail*********************")
         return "doesn't Exist", 404
 
 def create(request):
@@ -81,14 +78,13 @@ def check_if_url_exists(url):
         return False
 
 def redirect_to_url(url):
-    print('********* redirect url ********')
-    base = 'http://127.0.0.1:5000/'
-    print(url)
-    data = get_long_url_by__short_url(base+url)
-    original_url = data[0]['original_url']
-    print('******** redirect url *********')
-    print(original_url)
-    return redirect(original_url)
+    try:
+        base = 'http://127.0.0.1:5000/'
+        data = get_long_url_by__short_url(base+url)
+        original_url = data[0]['original_url']
+        return redirect(original_url)
+    except: 
+        return redirect("http://localhost:3000/")
 
 
 
