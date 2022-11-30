@@ -1,12 +1,25 @@
-import React from 'react'
+import React from "react";
 
-const Display = ({url}) => {
-  return (
-    <div>
-      <h1>Enjoy your shortened Url</h1>
-      <a href={url}>{url}</a>
-    </div>
-  )
-}
+const Display = ({ url }) => {
+	const copyToClipboard = () => {
+		const shortUrl = document.getElementById("short_url");
+		console.log(shortUrl.textContent);
+		navigator.clipboard.writeText(url);
+	};
 
-export default Display
+	return (
+		<div className="container">
+			<h2>Heres your Tidy Url!</h2>
+			<a href={url} id="short_url">
+				{url}
+			</a>
+			<i
+				onClick={copyToClipboard}
+				id="copy_btn"
+				class="fa-regular fa-clipboard"
+			></i>
+		</div>
+	);
+};
+
+export default Display;

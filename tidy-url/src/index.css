@@ -1,17 +1,101 @@
-body {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* General */
+
+* {
+	font-family: "Nerko One", cursive;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-.App {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+body {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+	overflow: hidden;
 }
 
 h1 {
-    display: block;
+	text-align: center;
+	font-size: 80px;
+	margin-bottom: 0.5rem;
+	color: #5f3fec;
+}
+
+a {
+	text-decoration: none;
+	transition: 0.3s ease-in-out;
+	color: #5f3fec;
+	margin: 0.75rem 0;
+}
+
+a:hover {
+	color: #3f27ad;
+	scale: 1.05;
+}
+
+/* Reusable container*/
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 20px;
+	padding: 2rem;
+}
+
+/* Form */
+
+input {
+	padding: 0.5rem 1rem;
+	font-size: 30px;
+	margin: 0.5rem 0;
+}
+
+.submit_btn {
+	margin: 0.5rem 0;
+	background-color: #5f3fec;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 12px;
+	transition: 0.3s ease-in-out;
+}
+
+.submit_btn:hover {
+	padding: 0.5rem 1.5rem;
+	box-shadow: 5px 5px 0 black;
+}
+
+/* Display */
+
+.display {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 20px;
+	padding: 2rem;
+}
+
+#copy_btn {
+	background-color: #5f3fec;
+	padding: 1rem;
+	border-radius: 20px;
+	color: white;
+	margin: 0.5rem 0 0;
+	font-size: 30px;
+	transition: 0.3s ease-in-out;
+}
+
+#copy_btn:hover {
+	background-color: #3f27ad;
+	box-shadow: 3px 3px 0 black;
 }
