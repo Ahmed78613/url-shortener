@@ -23,10 +23,10 @@ with app.app_context():
     db.init_app(app)
 
 # Pages on our website (With route) 
-@app.route("/")
-def home():
-    msg = {"msg": "Welcome to our api"}
-    return jsonify(msg), 200
+# @app.route("/")
+# def home():
+#     msg = {"msg": "Welcome to our api"}
+#     return jsonify(msg), 200
 
 # Run app
 if __name__ == "__main__":

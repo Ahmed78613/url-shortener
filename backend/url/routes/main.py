@@ -1,9 +1,9 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, redirect
 from ..controllers import urlController
 
 main_route = Blueprint("main", __name__)
 
-@main_route.route("/url",  methods=['GET', 'POST'])
+@main_route.route("/",  methods=['GET', 'POST'])
 def url():
     fns = {
         'GET': urlController.url,
@@ -16,5 +16,11 @@ def url():
 def getSpecificUrl(url):
     resp, code = urlController.get_url_by_long_url(url)
     return jsonify(resp), code
+
+
+@main_route.route("/<string:url>")
+def redirectUser(url):
+    resp = urlController.redirect_to_url(url)
+    return resp
     
 
